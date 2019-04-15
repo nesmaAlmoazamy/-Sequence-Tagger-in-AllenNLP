@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Apr 15 16:22:28 2019
+Created on Mon Apr 8 16:22:28 2019
 
 @author: nesma
 """
@@ -36,7 +36,7 @@ import string
 
 torch.manual_seed(1)
 
-@DatasetReader.register('data-reader')
+#@DatasetReader.register('data-reader')
 class NameDatasetReader(DatasetReader):
     def __init__(self,tokenizer = None ,token_indexers: Dict[str, TokenIndexer] = None) -> None:
         super().__init__(lazy=False)
@@ -67,8 +67,6 @@ class NameDatasetReader(DatasetReader):
         if unicodedata.category(c) != 'Mn'
         and c in self.all_letters
      )
-
-
     category_lines = {}
     all_categories = []
 
@@ -90,7 +88,7 @@ class NameDatasetReader(DatasetReader):
             self.category_lines[category] = lines
          
 
-@Model.register('name-reader')  
+#@Model.register('name-reader')  
 class NamesTagger(Model):
     def __init__(self,
                  word_embeddings: TextFieldEmbedder,
