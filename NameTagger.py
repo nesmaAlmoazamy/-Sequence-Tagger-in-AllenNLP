@@ -36,7 +36,7 @@ import string
 
 torch.manual_seed(1)
 
-#@DatasetReader.register('data-reader')
+@DatasetReader.register('data-reader')
 class NameDatasetReader(DatasetReader):
     def __init__(self,tokenizer = None ,token_indexers: Dict[str, TokenIndexer] = None) -> None:
         super().__init__(lazy=False)
@@ -88,7 +88,7 @@ class NameDatasetReader(DatasetReader):
             self.category_lines[category] = lines
          
 
-#@Model.register('name-reader')  
+@Model.register('name-reader')  
 class NamesTagger(Model):
     def __init__(self,
                  word_embeddings: TextFieldEmbedder,
@@ -168,6 +168,6 @@ trainer.train()
 #
 #
 #predictor = SentenceTaggerPredictor(model, dataset_reader=reader)
-#tag_logits = predictor.predict("Ahmed")['logits']
+#tag_logits = predictor.predict("Nesma")['logits']
 #tag_ids = np.argmax(tag_logits, axis=-1)
 #print([model.vocab.get_token_from_index(i, 'labels') for i in tag_ids])
