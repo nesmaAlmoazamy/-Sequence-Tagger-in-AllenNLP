@@ -9,13 +9,13 @@ local learning_rate = 0.1;
     "train_data_path": './data/train.txt',
     "validation_data_path": './data/val.txt',
     "dataset_reader": {
-        "type": "names-tagger-reader",
+        "type": "data-reader",
         "token_indexers": {
             "token_characters": { "type": "characters" }
         }
     },
     "model": {
-        "type": "names-tagger",
+        "type": "name-reader",
         "word_embeddings": {
             
             "token_embedders": {
